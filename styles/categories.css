@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #af40ff, #5b42f3, #00ddeb);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Анимация движения градиента */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+    background-color: #1f1f1f;
+    color: #00ddeb;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ddeb;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #b388ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00ddeb;
+}
+
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.categories-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #af40ff;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.categor-card {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    width: 200px;
+    transition: 0.3s;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 0 10px rgba(95, 65, 252, 0.4);
+}
+
+.categor-card:hover {
+    background: linear-gradient(135deg, #af40ff, #5b42f3, #00ddeb);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(95, 65, 252, 0.7);
+}
+
+.categor-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 0 10px rgba(175, 64, 255, 0.3);
+}
+
+.category:hover {
+  background: #2a2a2a;
+  transform: translateY(-2px);
+}
+
+.category img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* From Uiverse.io by Wendell47 */ 
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(37, 37, 37);
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+  background: rgb(193, 228, 248);
+  color: rgb(33, 0, 85);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.hoverEffect {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hoverEffect div {
+  background: rgb(222, 0, 75);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 0, 75, 1) 0%,
+    rgba(191, 70, 255, 1) 49%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 40rem;
+  width: 10rem;
+  height: 10rem;
+  transition: 0.4s;
+  filter: blur(20px);
+  animation: effect infinite 3s linear;
+  opacity: 0.5;
+}
+
+.button:hover .hoverEffect div {
+  width: 8rem;
+  height: 8rem;
+}
+
+@keyframes effect {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body.light-theme header {
+  background-color: #e0e0ff;
+  color: #5b42f3;
+  box-shadow: 0 2px 5px rgba(91, 66, 243, 0.3);
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .category-card .button {
+        height: 70px;
+        font-size: 16px;
+    }
+}

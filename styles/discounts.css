@@ -1,0 +1,294 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: #1f1f1f;
+    color: #00ddeb;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ddeb;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #b388ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00ddeb;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: #af40ff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* Сетка карточек */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Карточка товара */
+.custom-card {
+    width: 220px;
+    height: 425px;
+    border-radius: 16px;
+    background: #1a1a1a;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    margin: 20px;
+    flex: 1 1 calc(20% - 16px);
+    max-width: 220px;
+    box-sizing: border-box;
+}
+
+.custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(175, 64, 255, 0.5);
+}
+
+.custom-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.custom-card h3 {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: #af40ff;
+    text-align: center;
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #00ddeb;
+}
+
+/* Кнопка */
+button {
+    align-items: center;
+    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 10px 20px -5px;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    line-height: 1em;
+    min-width: 140px;
+    padding: 2px;
+    text-decoration: none;
+    user-select: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button span {
+    background-color: #05062d;
+    padding: 10px 16px;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    transition: 300ms;
+    font-weight: 500;
+}
+
+button:hover span {
+    background-color: transparent;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+  margin-right: 6px;
+}
+
+.new-price {
+  color: #00ddeb;
+  font-weight: bold;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #2b2c37;
+}
+
+body.light-theme header {
+  background-color: #e0e0ff;
+  color: #5b42f3;
+  box-shadow: 0 2px 5px rgba(91, 66, 243, 0.3);
+}
+
+body.light-theme .logo {
+  color: #5b42f3;
+}
+
+body.light-theme nav a {
+  color: #5b42f3;
+}
+
+body.light-theme nav a:hover {
+  color: #af40ff;
+}
+
+body.light-theme .banner {
+  background: linear-gradient(to right, #af40ff, #5b42f3);
+  color: white;
+  border-bottom: 4px solid #5b42f3;
+}
+
+body.light-theme .product-card {
+  background: #f0f0ff;
+  color: #2b2c37;
+  box-shadow: 0 4px 10px rgba(91, 66, 243, 0.3);
+  transition: transform 0.2s;
+}
+
+body.light-theme .product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(175, 64, 255, 0.4);
+}
+
+body.light-theme button {
+  background-image: linear-gradient(144deg, #5b42f3, #af40ff 50%, #00ddeb);
+  color: #ffffff;
+  box-shadow: rgba(91, 66, 243, 0.3) 0 10px 20px -5px;
+}
+
+body.light-theme button:hover span {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+body.light-theme .input {
+  background-color: #f9f9ff;
+  color: #2b2c37;
+  box-shadow: 0 0 0 1.5px #8a87f7, 00 25px -17px #e0e0ff;
+}
+
+body.light-theme .card {
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  color: #2b2c37;
+}
+
+body.light-theme .card span {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #2b2c37;
+}
+
+body.light-theme .custom-card {
+  background: #f0f0ff;
+  color: #2b2c37;
+  box-shadow: 0 0 15px rgba(91, 66, 243, 0.3);
+}
+
+body.light-theme .modal {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+}
+
+body.light-theme .modal-content,
+body.light-theme .modal-box {
+  background: #f9f9ff;
+  color: #2b2c37;
+  box-shadow: 0 0 20px #5b42f3;
+}
+
+body.light-theme .close {
+  color: #5b42f3;
+}
+
+body.light-theme .close:hover {
+  color: #af40ff;
+}
+
+body.light-theme .switch .slider {
+  background-color: #5b42f3;
+}
+
+body.light-theme .sun-moon {
+  background-color: #f1c40f;
+}
+
+body.light-theme #input:checked + .slider .sun-moon {
+  background-color: #ffffff;
+  animation-name: rotate-center;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+body.light-theme .moon-dot {
+  fill: #666666;
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    flex: 1 1 calc(50% - 15px);
+    max-width: none;
+  }
+  
+  .product-list {
+    gap: 15px;
+    padding: 10px;
+  }
+}
+
+/* Можно для очень маленьких экранов (меньше 400px) делать по 1 карточке */
+@media (max-width: 400px) {
+  .custom-card {
+    flex: 1 1 100%;
+  }
+}

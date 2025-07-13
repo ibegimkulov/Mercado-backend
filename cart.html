@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+    <nav class="top-nav">
+    <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="category.html">Категории</a></li>
+        <li><a href="discounts.html">Скидки</a></li>
+        <li><a href="login.html">Войти</a></li>
+    </ul>
+</nav>
+
+    <h1>Ваша корзина</h1>
+    <div class="cart-list"></div>
+
+    <p class="total-sum">Итого: <span id="total-sum">0 сум</span></p>
+
+    <button id="checkout">Оформить заказ</button>
+
+    <button id="clear-cart">Очистить корзину</button>
+
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Оформление заказа</h2>
+            <input type="text" id="customer-name" placeholder="Ваше имя">
+            <input type="text" id="customer-phone" placeholder="Телефон">
+            <button id="submit-order">Подтвердить заказ</button>
+        </div>
+    </div>
+
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/theme-toggle.js"></script>
+</body>
+</html>

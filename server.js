@@ -59,12 +59,12 @@ app.post('/api/orders', async (req, res) => {
 });
 
 // Раздача frontend из папки frontend в папке backend
-app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(express.static(__dirname));
 
-// Для всех остальных маршрутов отдаём index.html (чтобы фронтенд маршрутизировал сам)
 app.get(/^\/(?!api).*/, (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
+
 
 // Запуск сервера
 app.listen(PORT, () => {

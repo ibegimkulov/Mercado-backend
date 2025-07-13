@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Товар</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Mercado</div>
+  </header>
+
+  <main id="product-details" class="container"></main>
+
+<div class="modal" id="quick-buy">
+  <div class="modal-box">
+    <span class="close" onclick="document.getElementById('quick-buy').style.display='none'">&times;</span>
+    <h2>Купить в 1 клик</h2>
+    <input type="text" placeholder="Ваше имя" />
+    <input type="tel" placeholder="Номер телефона" />
+    <button onclick="submitQuickBuy()"><span>Отправить</span></button>
+  </div>
+</div>
+
+
+  <script src="scripts/products.js"></script>
+  <script src="scripts/theme-toggle.js"></script>
+</body>
+</html>

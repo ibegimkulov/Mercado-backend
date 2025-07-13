@@ -1,0 +1,221 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Центрирование формы */
+.form-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  background-color: #1a1a1a;
+  padding: 3rem;
+  color: #f3f4f6;
+  box-shadow: 0 0 20px rgba(0, 221, 235, 0.2);
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.form {
+  margin-top: 1rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.input-group label {
+  display: block;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #374151;
+  background-color: #111827;
+  padding: 0.8rem 1rem;
+  color: #f3f4f6;
+  outline: none;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  border-color: #af40ff;
+}
+
+.forgot {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+.forgot a,
+.signup a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+.forgot a:hover,
+.signup a:hover {
+  text-decoration: underline;
+  color: #00ddeb;
+}
+
+.sign {
+  display: block;
+  width: 100%;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  padding: 0.9rem;
+  text-align: center;
+  color: #111827;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sign:hover {
+  opacity: 0.9;
+}
+
+.social-message {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0 1rem;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: #374151;
+}
+
+.social-message .message {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.social-icons .icon {
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.signup {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ddeb;
+}
+
+header {
+    background-color: #1f1f1f;
+    color: #00ddeb;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #b388ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00ddeb;
+}
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #2b2c37;
+}
+
+body.light-theme header {
+    background-color: #e0e0ff;
+    color: #5b42f3;
+}
+
+body.light-theme .logo {
+    color: #5b42f3;
+}
+
+body.light-theme nav a {
+    color: #5b42f3;
+}
+
+body.light-theme nav a:hover {
+    color: #af40ff;
+}
+
+body.light-theme .form-container {
+    background-color: #f0f0ff;
+    box-shadow: 0 0 20px rgba(91, 66, 243, 0.2);
+}
+
+body.light-theme .title {
+    color: #5b42f3;
+}
+
+body.light-theme .input-group input {
+    background-color: #ffffff;
+    color: #2b2c37;
+}
+
+/* Белая кнопка в светлой теме */
+body.light-theme .sign {
+    background: #ffffff;
+    color: #5b42f3;
+    border: 2px solid #5b42f3;
+}
+
+body.light-theme .sign:hover {
+    background-color: #5b42f3;
+    color: #ffffff;
+}
