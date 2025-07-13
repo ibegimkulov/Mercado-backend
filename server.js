@@ -1,29 +1,27 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-// const fetch = require('node-fetch');
+const fetch = require('node-fetch'); // Убедись, что установлен: npm install node-fetch
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Подключение JSON с товарами
 const products = require('./data/products.json');
-const { error } = require('console');
 
-// Токен Telegram-бота и твой chat_id
+// Telegram credentials
 const TELEGRAM_TOKEN = '7893139984:AAGcgbmlJdyh9s1NWkta3aNwY0srkjPyz2A';
 const TELEGRAM_CHAT_ID = '2019801953';
 
-// Настройка CORS и парсера JSON
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// ➤ Получение всех товаров
+// ➤ API: Получение всех товаров
 app.get('/api/products', (req, res) => {
     res.json(products);
 });
 
-// ➤ Приём заказа и отправка уведомления в Telegram
+// ➤ API: Отправка заказа в Telegram
 app.post('/api/orders', async (req, res) => {
     const { name, phone, cart } = req.body;
 
@@ -41,7 +39,7 @@ app.post('/api/orders', async (req, res) => {
     const message = `<b>Новый заказ!</b>\n\n👤 <b>Имя:</b> ${name}\n📱 <b>Телефон:</b> ${phone}\n🛒 <b>Товары:</b>\n${productList}`;
 
     try {
-       const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -51,33 +49,30 @@ app.post('/api/orders', async (req, res) => {
             })
         });
 
-        const data = await express.response.json();
+        const data = await response.json();
         console.log('Ответ Telegram API:', data);
 
         if (!data.ok) {
-            throw new Error(`Ошибка Telegram API: ${data.description}`)
+            throw new Error(`Ошибка Telegram API: ${data.description}`);
         }
 
-        console.log('Заказ отправлен в Telegram');
-        res.status(201).json({ message: "Заказ успешно оформлен" });
+        res.status(201).json({ message: 'Заказ успешно отправлен в Telegram' });
 
     } catch (error) {
         console.error('Ошибка при отправке в Telegram:', error);
-        res.status(500).json({ message: "Ошибка при отправке в Telegram" });
+        res.status(500).json({ message: 'Ошибка при отправке в Telegram' });
     }
 });
 
 // ➤ Раздача frontend
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// ➤ Перенаправление на index.html (если не api-запрос)
+// ➤ Для всех других маршрутов (кроме API)
 app.get(/^\/(?!api).*/, (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 // ➤ Запуск сервера
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}`);
+    console.log(`✅ Сервер запущен на порту: ${PORT}`);
 });
-
