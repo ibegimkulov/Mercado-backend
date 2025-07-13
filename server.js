@@ -8,24 +8,20 @@ const PORT = process.env.PORT || 3000;
 
 const products = require('./data/products.json');
 
-// Telegram credentials
 const TELEGRAM_TOKEN = '7893139984:AAGcgbmlJdyh9s1NWkta3aNwY0srkjPyz2A';
 const TELEGRAM_CHAT_ID = '2019801953';
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// ➤ API: Получение всех товаров
+// Получение всех товаров
 app.get('/api/products', (req, res) => {
     res.json(products);
 });
 
-// ➤ API: Отправка заказа в Telegram
+// Приём заказа и отправка уведомления в Telegram
 app.post('/api/orders', async (req, res) => {
     const { name, phone, cart } = req.body;
-
-    console.log('Получен заказ:', req.body);
 
     if (!name || !phone) {
         return res.status(400).json({ message: 'Имя и телефон обязательны' });
@@ -50,8 +46,6 @@ app.post('/api/orders', async (req, res) => {
         });
 
         const data = await response.json();
-        console.log('Ответ Telegram API:', data);
-
         if (!data.ok) {
             throw new Error(`Ошибка Telegram API: ${data.description}`);
         }
@@ -64,15 +58,15 @@ app.post('/api/orders', async (req, res) => {
     }
 });
 
-// ➤ Раздача frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
+// Раздача frontend из папки frontend в папке backend
+app.use(express.static(path.join(__dirname, 'frontend')));
 
-// ➤ Для всех других маршрутов (кроме API)
+// Для всех остальных маршрутов отдаём index.html (чтобы фронтенд маршрутизировал сам)
 app.get(/^\/(?!api).*/, (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
-// ➤ Запуск сервера
+// Запуск сервера
 app.listen(PORT, () => {
     console.log(`✅ Сервер запущен на порту: ${PORT}`);
 });
